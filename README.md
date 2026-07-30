@@ -80,7 +80,6 @@ The notebook is organized into clearly numbered, self-contained steps so you alw
 | 9️⃣ | Zip the Folder | Bundles every `.ndjson` into one `.zip` |
 | 🔟 | Download the ZIP | Downloads the archive straight to your machine |
 | 📥 | Importing into Kibana | A guided walkthrough for importing the result into your Kibana instance |
-| 🛠️ | Troubleshooting | A table of common errors and their fixes |
 | 📚 | References | Links to Elastic's official docs and CLI reference |
 
 ---
@@ -170,51 +169,6 @@ Re-run Steps 7–10 for each category you want.
 3. Drag in the `.ndjson` file(s) from your unzipped folder.
 4. Optionally enable **overwrite on conflicting `rule_id`** if you're re-importing an update.
 5. Click **Import** and verify the rule count.
-
----
-
-## ❓ FAQ
-
-<details>
-<summary><strong>Why not just export the whole rules/ directory into one giant NDJSON?</strong></summary>
-
-You can! Point `RULES_DIR` at `rules/` instead of `rules/windows` if you want everything. This notebook exports
-**one file per rule** by default because it makes it easy to cherry-pick individual rules for import, review, or
-version control.
-</details>
-
-<details>
-<summary><strong>Does this modify or fork Elastic's official rules?</strong></summary>
-
-No. It clones the repository fresh, runs Elastic's own unmodified CLI against it, and does not alter any rule
-content.
-</details>
-
-<details>
-<summary><strong>Will this work in an air-gapped environment?</strong></summary>
-
-The notebook itself needs internet access to clone the repo and install dependencies. Once you have the resulting
-`.ndjson` files, though, importing them into an air-gapped Kibana instance requires no further internet access.
-</details>
-
-<details>
-<summary><strong>How often should I re-run this?</strong></summary>
-
-Elastic updates its rule set frequently. Re-run the notebook (it always clones the latest version) whenever you
-want the newest rules — or fork this repo and wire it into a scheduled GitHub Action for full automation.
-</details>
-
----
-
-## 🛠️ Troubleshooting
-
-Full troubleshooting table lives inside the notebook — but the short version:
-
-| Problem | Fix |
-|---|---|
-| `poetry: command not found` | Restart the runtime after installing Poetry |
-| `poetry install` fails | Check the Python version required in `detection-rules`' `pyproject.toml` |
-| Kibana rejects the import | Re-check the `Exported`/`Failed` counts from the export step — make sure the file isn't empty |
 
 ---
 
