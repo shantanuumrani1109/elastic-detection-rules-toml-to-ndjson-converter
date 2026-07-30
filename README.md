@@ -75,7 +75,7 @@ The notebook is organized into clearly numbered, self-contained steps so you alw
 | 4️⃣ | Install Project Dependencies | Installs the exact CLI dependencies via `poetry install` |
 | 5️⃣ | Verify the CLI | Confirms the `detection_rules` CLI is working |
 | 6️⃣ | Choose the Category | Lists every available rule category (`windows`, `linux`, `macos`, `network`, `cloud`, …) |
-| 7️⃣ | Export Every Windows Rule | Loops through every `.toml` file and exports it to its own `.ndjson` |
+| 7️⃣ | Export Every Rule from Chosen Category | Loops through every `.toml` file and exports it to its own `.ndjson` |
 | 8️⃣ | Verify the Files | Confirms the export worked and previews the output |
 | 9️⃣ | Zip the Folder | Bundles every `.ndjson` into one `.zip` |
 | 🔟 | Download the ZIP | Downloads the archive straight to your machine |
