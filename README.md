@@ -186,8 +186,6 @@ Ideas for making this even more useful are very welcome:
 3. ✅ Make your changes
 4. 📬 Open a pull request
 
-Found a bug or have a feature request? [Open an issue](../../issues) — every report helps.
-
 ---
 
 ## ⭐ Support This Project
