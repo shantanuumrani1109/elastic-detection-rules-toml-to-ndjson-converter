@@ -1,1 +1,0 @@
-# elastic-detection-rules-toml-to-ndjson-converter
