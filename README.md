@@ -42,9 +42,9 @@ the same officially documented Elastic CLI command (`export-rules-from-repo`) un
 
 | # | Tool | Output |
 |---|---|---|
-| 1️⃣ | **`Elastic_Detection_Rules_Converter.ipynb`** | One `.ndjson` **per rule**, all zipped together |
-| 2️⃣ | **`Elastic_Detection_Rules_Converter_SingleFile.ipynb`** | **One combined `.ndjson`** for the whole category |
-| 3️⃣ | **`Elastic_Detection_Rules_Converter_EXE.ipynb`** + `elastic_rules_converter.py` | A **standalone command-line tool** (and optional `.exe`) that does either of the above with flags — no notebook required |
+| 1️⃣ | **`ElasticDetectionRulesConverter-[Batch Conversion of Multiple TOML Files to NDJSON Files].ipynb`** | One `.ndjson` **per rule**, all zipped together |
+| 2️⃣ | **`ElasticDetectionRulesConverter-[Batch Conversion of Multiple TOML Files to a Single NDJSON File].ipynb`** | **One combined `.ndjson`** for the whole category |
+| 3️⃣ | **`ElasticDetectionRulesConverter-[Standalone CLI Executable (.exe)].ipynb`** + `elastic_rules_converter.py` | A **standalone command-line tool** (and optional `.exe`) that does either of the above with flags — no notebook required |
 
 None of these re-implement Elastic's TOML parsing or validation logic — they all orchestrate Elastic's own CLI,
 so results always match what Elastic's official tooling produces, even as their rule schema evolves.
@@ -55,9 +55,9 @@ so results always match what Elastic's official tooling produces, even as their 
 
 | File | Description |
 |---|---|
-| **`Elastic_Detection_Rules_Converter.ipynb`** | Clones the rules repo, installs the CLI, exports every rule in a category as its own `.ndjson`, zips them, downloads the archive. Best for cherry-picking or reviewing individual rules. |
-| **`Elastic_Detection_Rules_Converter_SingleFile.ipynb`** | Same setup, but exports an entire category into **one combined `.ndjson`** — a single drag-and-drop import into Kibana. |
-| **`Elastic_Detection_Rules_Converter_EXE.ipynb`** | Writes out `elastic_rules_converter.py`, demonstrates it as a parameterized CLI tool, packages it with PyInstaller, and shows how to get a genuine Windows `.exe` via GitHub Actions. |
+| **`ElasticDetectionRulesConverter-[Batch Conversion of Multiple TOML Files to NDJSON Files].ipynb`** | Clones the rules repo, installs the CLI, exports every rule in a category as its own `.ndjson`, zips them, downloads the archive. Best for cherry-picking or reviewing individual rules. |
+| **`ElasticDetectionRulesConverter-[Batch Conversion of Multiple TOML Files to a Single NDJSON File].ipynb`** | Same setup, but exports an entire category into **one combined `.ndjson`** — a single drag-and-drop import into Kibana. |
+| **`ElasticDetectionRulesConverter-[Standalone CLI Executable (.exe)].ipynb`** | Writes out `elastic_rules_converter.py`, demonstrates it as a parameterized CLI tool, packages it with PyInstaller, and shows how to get a genuine Windows `.exe` via GitHub Actions. |
 | **`elastic_rules_converter.py`** | The standalone script itself — usable directly (`python elastic_rules_converter.py --category windows --mode single`) without opening any notebook at all. |
 | **`README.md`** | You're reading it. |
 
@@ -69,13 +69,13 @@ so results always match what Elastic's official tooling produces, even as their 
 <summary><strong>👉 Click to expand a quick decision guide</strong></summary>
 
 - **"I want to review or import specific rules one at a time."**
-  → `Elastic_Detection_Rules_Converter.ipynb` (per-rule `.ndjson`, zipped)
+  → `ElasticDetectionRulesConverter-[Batch Conversion of Multiple TOML Files to NDJSON Files].ipynb` (per-rule `.ndjson`, zipped)
 
 - **"I just want everything from one category in Kibana, fast, in one upload."**
-  → `Elastic_Detection_Rules_Converter_SingleFile.ipynb` (one combined `.ndjson`)
+  → `ElasticDetectionRulesConverter-[Batch Conversion of Multiple TOML Files to a Single NDJSON File].ipynb` (one combined `.ndjson`)
 
 - **"I don't want to touch Jupyter/Colab at all — give me a tool with flags, or better yet an `.exe`."**
-  → `Elastic_Detection_Rules_Converter_EXE.ipynb` → `elastic_rules_converter.py` (and the Windows `.exe` via CI, see below)
+  → `ElasticDetectionRulesConverter-[Standalone CLI Executable (.exe)].ipynb` → `elastic_rules_converter.py` (and the Windows `.exe` via CI, see below)
 
 </details>
 
@@ -85,13 +85,13 @@ so results always match what Elastic's official tooling produces, even as their 
 
 ### Option 1 — Per-rule export (zipped)
 
-1. Open `Elastic_Detection_Rules_Converter.ipynb` in Colab and **Run all**.
+1. Open `ElasticDetectionRulesConverter-[Batch Conversion of Multiple TOML Files to NDJSON Files].ipynb` in Colab and **Run all**.
 2. Choose your category (default: `windows`).
 3. Download `Windows_NDJSON.zip` — one `.ndjson` per rule inside.
 
 ### Option 2 — Single combined file
 
-1. Open `Elastic_Detection_Rules_Converter_SingleFile.ipynb` in Colab and **Run all**.
+1. Open `ElasticDetectionRulesConverter-[Batch Conversion of Multiple TOML Files to a Single NDJSON File].ipynb` in Colab and **Run all**.
 2. Set `RULE_CATEGORY` in Step 6 (defaults to `windows`; use `"rules"` for every platform combined).
 3. Download the single `windows_rules.ndjson` file.
 
@@ -109,7 +109,7 @@ python elastic_rules_converter.py --category rules --mode single --output all_ru
 ```
 
 Requires a local clone of `elastic/detection-rules` with `poetry install` already run inside it — see
-`Elastic_Detection_Rules_Converter_EXE.ipynb` for the one-time setup, or build/download the `.exe` (below).
+`ElasticDetectionRulesConverter-[Standalone CLI Executable (.exe)].ipynb` for the one-time setup, or build/download the `.exe` (below).
 
 For all three: import the result in Kibana via **Security → Manage → Rules → Detection rules (SIEM) → Import rules**.
 
@@ -155,7 +155,7 @@ All three tools in this repo are just different front-ends onto this same pipeli
 
 ### Getting a real `.exe`
 
-`Elastic_Detection_Rules_Converter_EXE.ipynb` packages the script with
+`ElasticDetectionRulesConverter-[Standalone CLI Executable (.exe)].ipynb` packages the script with
 [PyInstaller](https://pyinstaller.org/) — but PyInstaller builds for whatever OS it runs on, so building it
 inside Colab produces a **Linux** binary, not a Windows `.exe`, regardless of the file name.
 
