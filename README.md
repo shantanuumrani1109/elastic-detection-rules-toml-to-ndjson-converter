@@ -86,7 +86,7 @@ The notebook is organized into clearly numbered, self-contained steps so you alw
 
 ## 🚀 Quick Start
 
-1. **Click the badge below** (or open `Elastic_Detection_Rules_Converter.ipynb` in any Jupyter environment):
+1. **Click the badge below** (or open `ElasticDetectionRulesConverter-[Batch Conversion of Multiple TOML Files to NDJSON Files].ipynb.ipynb` in any Jupyter environment):
 
    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
 
