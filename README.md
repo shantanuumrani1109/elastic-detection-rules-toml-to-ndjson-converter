@@ -56,7 +56,7 @@ evolves.
 
 | File | Description |
 |---|---|
-| **`Elastic_Detection_Rules_Converter.ipynb`** | The star of the show. A step-by-step Jupyter/Colab notebook — clone the rules repo, install the CLI, export every Windows rule as an individual `.ndjson`, zip it, and download it. Fully commented, with explanations, a troubleshooting table, and a Kibana import walkthrough baked in. |
+| **`ElasticDetectionRulesConverter-[Batch Conversion of Multiple TOML Files to NDJSON Files].ipynb.ipynb`** | The star of the show. A step-by-step Jupyter/Colab notebook — clone the rules repo, install the CLI, export every Windows rule as an individual `.ndjson`, zip it, and download it. Fully commented, with explanations, a troubleshooting table, and a Kibana import walkthrough baked in. |
 | **`README.md`** | You're reading it. |
 
 ### 🔍 Inside the notebook
@@ -80,7 +80,6 @@ The notebook is organized into clearly numbered, self-contained steps so you alw
 | 9️⃣ | Zip the Folder | Bundles every `.ndjson` into one `.zip` |
 | 🔟 | Download the ZIP | Downloads the archive straight to your machine |
 | 📥 | Importing into Kibana | A guided walkthrough for importing the result into your Kibana instance |
-| 🛠️ | Troubleshooting | A table of common errors and their fixes |
 | 📚 | References | Links to Elastic's official docs and CLI reference |
 
 ---
